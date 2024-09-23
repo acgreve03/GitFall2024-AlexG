@@ -1,0 +1,55 @@
+#a
+git rev-list HEAD --count
+13
+
+
+#b
+Sun Sep 22 16:52:11
+
+
+#c
+git rev-list -n 1 --before="2024-09-22" HEAD
+be29a0ec454348208cc20f85408430df4e6af8f3
+
+
+#d
+I don't have a src folder
+
+#e
+i created the REMOVE.txt file by doing "touch REMOVE.txt" and then I did "rm REMOVE.txt", so 2 operations
+
+#f
+git log shows the commit history with info for each commit.
+
+git status shows the current working directory and allows you
+to view which files are modified, staged, and untracked
+
+
+#g
+git shortlog summarizes commit history into a more compact format, without showing hashes and other specific details
+
+
+#h
+you would use got log -- Main.java
+
+
+#i 
+you would use git log -p --follow -- Main.java
+-p shows different changes for each commit
+--follow fllows the file through past renames
+
+
+
+#j
+you could use git log --grep="account"
+--grep lets you find specific words in commit messages
+
+
+
+#k
+git log --author="Author Name"
+
+
+
+#l
+git log --author="Lauren" --since="2014-01-05" --until="2024-01-14"

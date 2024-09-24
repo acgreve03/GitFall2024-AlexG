@@ -5,7 +5,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
@@ -13,7 +12,6 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
-
 import javax.imageio.ImageIO;
 
 public class SlayTheSpire {
@@ -32,6 +30,13 @@ public class SlayTheSpire {
     }
 
     //read a plain text file containing <card name> : <cost>
+
+    /**
+     * read a plain text file containing <card name> : <cost>
+     * @param fileName the name of the file to read
+     * @return the HashMap containing the data from the inout file, where card names are mapped to energy costs
+     * @throws IOException
+     */
     public static HashMap<String, Double> readCardFile(String fileName) throws IOException{
         //create deck hashmap
         HashMap<String, Double> deck = new HashMap<String, Double>();
@@ -79,6 +84,13 @@ public class SlayTheSpire {
             return deck;
         }
 
+    /**
+     * Generates a PDF report of the deck, showing the total cost of the deck and a histogram of the deck.
+     * Uses JFreeChart to create a histogram, and iText to convert the histogram chart to a png and append it to the pdf report.
+     * @param cardDeck the hashmap containing the data from the input file
+     * @param histogram a histogram object used to call the Histogram class to create and display the histogram
+     * @throws IOException
+     */
     public static void generateReport(HashMap<String, Double> cardDeck, Histogram histogram) throws IOException {
         Random random = new Random();
         int deckID = 100000000 + random.nextInt(999999999);
@@ -125,8 +137,6 @@ public class SlayTheSpire {
             // If too many invalid cards, mark the deck as "VOID"
             document.add(new com.itextpdf.layout.element.Paragraph("VOID"));
         }
-
-
 
         document.close();
         writer.close();

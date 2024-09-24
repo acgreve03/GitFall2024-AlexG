@@ -1,4 +1,4 @@
-public class Main{
+/*public class Main{
 
 LinkedList<String> studentNames;
 
@@ -14,4 +14,4 @@ public Main(){
 		studentNames.add("Alex");
 		studentNames.add("Jake");
 	}
-}
+}*/

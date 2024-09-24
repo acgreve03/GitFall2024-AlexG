@@ -94,7 +94,20 @@ public class SlayTheSpire {
     public static void generateReport(HashMap<String, Double> cardDeck, Histogram histogram) throws IOException {
         Random random = new Random();
         int deckID = 100000000 + random.nextInt(999999999);
-        PdfWriter writer = new PdfWriter("SpireDeck_" + deckID + ".pdf");
+
+        //check if the deck is invalid
+        boolean isDeckInvalid = (voidNum > 10 || cardNum > 1000);
+
+        //declaring what the file name is based on if the deck is valid or not.
+        String filename = "SpireDeck_" + deckID;
+
+        //append "(VOID)" if the deck is invalid
+        if (isDeckInvalid) {
+            filename += "(VOID)";
+        }
+
+        filename += (".pdf");
+        PdfWriter writer = new PdfWriter(filename);
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document document = new Document(pdfDoc);
 

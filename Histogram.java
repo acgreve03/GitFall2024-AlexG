@@ -18,10 +18,12 @@ import java.util.HashMap;
 
 public class Histogram {
 
-    public Histogram(){
-
-    }
-
+    /**
+     * creates a bar chart(histogram)
+     * @param chartTitle the Title of the chart
+     * @param dataArray The data used in the bar chart
+     * @return a JFreeChart object consisting of all the data needed in the histogram.
+     */
     public JFreeChart getBarChart(String chartTitle, HashMap<String, Double> dataArray) {
         // Create a dataset
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -44,17 +46,5 @@ public class Histogram {
                 true,              // Use tooltips
                 false              // Use URLs
         );
-    }
-
-    public void displayChart(JFreeChart chart) {
-        //create and display the chart using ChartPanel in a JFrame
-        ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(800, 600));
-
-        JFrame frame = new JFrame("Bar Chart Example");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(chartPanel);
-        frame.pack();
-        frame.setVisible(true);
     }
 }
